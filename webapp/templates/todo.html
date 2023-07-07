@@ -17,7 +17,7 @@
 <div>
     <h1 style="margin-top: 40px">Описание: {{ todo.content }}</h1>
     <h4 style="margin-top: 20px">Статус: {{ todo.status }}</h4>
-    <h6 style="margin-top: 20px">Типы:</h6>
+    <h6 style="margin-top: 20px"><b>Типы:</b></h6>
     <p>
         {% for type in todo.types.all %}
             {{ type.name }}
@@ -26,8 +26,8 @@
             {% endif %}
         {% endfor %}
     </p>
-    <p>Детальное описание: {{ todo.details }}</p>
-    <p>Дата выполнения: {{ todo.created_at}}</p>
+    <p><b>Детальное описание:</b> {{ todo.details }}</p>
+    <p><b>Дата выполнения:</b> {{ todo.created_at}}</p>
 </div>
 
 {% endblock %}
