@@ -14,8 +14,10 @@ class Todo(AbstractModel):
     details = models.TextField(max_length=2000, null=True, blank=True, verbose_name="Детальное описание")
     status = models.ForeignKey('webapp.Status', related_name='status', null=True, blank=True, on_delete=models.PROTECT,
                                 verbose_name='Статус')
-    types = models.ForeignKey('webapp.Type', related_name='types', null=True, blank=True, on_delete=models.PROTECT,
-                               verbose_name='Тип')
+    types = models.ManyToManyField('webapp.Type', related_name='types', blank=True)
+
+    # types = models.ForeignKey('webapp.Type', related_name='types', null=True, blank=True, on_delete=models.PROTECT,
+    #                            verbose_name='Тип')
 
     def __str__(self):
         return f"{self.pk} {self.content} ({self.types}): {self.status}"
