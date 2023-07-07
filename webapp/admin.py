@@ -8,11 +8,11 @@ admin.site.register(Type)
 
 
 class TodoAdmin(admin.ModelAdmin):
-    list_display = ['id', 'content', 'status', 'created_at']
+    list_display = ['id', 'content', 'status', 'type']
     list_display_links = ['id', 'content']
     list_filter = ['created_at']
-    search_fields = ['content', 'status']
-    fields = ['content', 'status', 'details', 'created_at']
+    search_fields = ['content', 'status', 'type']
+    fields = ['content', 'status', 'details', 'type']
 
 
 admin.site.register(Todo, TodoAdmin)

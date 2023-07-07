@@ -1,0 +1,128 @@
+[
+{
+    "model": "webapp.todo",
+    "pk": 1,
+    "fields": {
+        "created_at": "2023-07-07T10:00:36.998Z",
+        "updated_at": "2023-07-07T10:00:36.998Z",
+        "content": "Test",
+        "details": "",
+        "status": 1,
+        "type": 1
+    }
+},
+{
+    "model": "webapp.todo",
+    "pk": 2,
+    "fields": {
+        "created_at": "2023-07-07T10:01:36.079Z",
+        "updated_at": "2023-07-07T10:01:36.079Z",
+        "content": "Homework",
+        "details": "class ArticleAdmin(admin.ModelAdmin):\r\n    list_display = ['id', 'title', 'author', 'created_at', 'status']\r\n    list_display_links = ['id', 'title']\r\n    list_filter = ['author']\r\n    search_fields = ['title', 'content']\r\n    fields = ['title', 'author', 'content', 'created_at', 'updated_at', 'status']\r\n    readonly_fields = ['created_at', 'updated_at']",
+        "status": 2,
+        "type": 1
+    }
+},
+{
+    "model": "webapp.todo",
+    "pk": 3,
+    "fields": {
+        "created_at": "2023-07-07T10:01:50.377Z",
+        "updated_at": "2023-07-07T10:01:50.377Z",
+        "content": "test2",
+        "details": "dfsf",
+        "status": 3,
+        "type": 3
+    }
+},
+{
+    "model": "webapp.todo",
+    "pk": 4,
+    "fields": {
+        "created_at": "2023-07-07T10:02:03.234Z",
+        "updated_at": "2023-07-07T10:02:03.234Z",
+        "content": "test3",
+        "details": "dfdf",
+        "status": 1,
+        "type": 2
+    }
+},
+{
+    "model": "webapp.todo",
+    "pk": 5,
+    "fields": {
+        "created_at": "2023-07-07T10:02:18.596Z",
+        "updated_at": "2023-07-07T10:02:18.596Z",
+        "content": "test4",
+        "details": "dfdfdf",
+        "status": 2,
+        "type": 3
+    }
+},
+{
+    "model": "webapp.todo",
+    "pk": 6,
+    "fields": {
+        "created_at": "2023-07-07T10:02:30.988Z",
+        "updated_at": "2023-07-07T10:02:30.988Z",
+        "content": "test5",
+        "details": "dfsfsfsf",
+        "status": 3,
+        "type": 1
+    }
+},
+{
+    "model": "webapp.status",
+    "pk": 1,
+    "fields": {
+        "created_at": "2023-07-07T09:56:39.865Z",
+        "updated_at": "2023-07-07T09:56:39.866Z",
+        "name": "New"
+    }
+},
+{
+    "model": "webapp.status",
+    "pk": 2,
+    "fields": {
+        "created_at": "2023-07-07T09:56:51.723Z",
+        "updated_at": "2023-07-07T09:56:51.723Z",
+        "name": "In Progress"
+    }
+},
+{
+    "model": "webapp.status",
+    "pk": 3,
+    "fields": {
+        "created_at": "2023-07-07T09:56:58.316Z",
+        "updated_at": "2023-07-07T09:56:58.316Z",
+        "name": "Done"
+    }
+},
+{
+    "model": "webapp.type",
+    "pk": 1,
+    "fields": {
+        "created_at": "2023-07-07T09:57:11.937Z",
+        "updated_at": "2023-07-07T09:57:11.937Z",
+        "name": "Task"
+    }
+},
+{
+    "model": "webapp.type",
+    "pk": 2,
+    "fields": {
+        "created_at": "2023-07-07T09:57:22.793Z",
+        "updated_at": "2023-07-07T09:57:22.794Z",
+        "name": "Bug"
+    }
+},
+{
+    "model": "webapp.type",
+    "pk": 3,
+    "fields": {
+        "created_at": "2023-07-07T09:57:24.949Z",
+        "updated_at": "2023-07-07T09:57:24.949Z",
+        "name": "Enhancement"
+    }
+}
+]
