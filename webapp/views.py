@@ -23,10 +23,12 @@ class TodoCreateView(View):
     def post(self, request, *args, **kwargs):
         form = TodoForm(data=request.POST)
         if form.is_valid():
+            types = form.cleaned_data.pop("types")
             todo = Todo.objects.create(content=form.cleaned_data.get("content"),
                                        details=form.cleaned_data.get("details"),
-                                       status=form.cleaned_data.get("status"),
-                                       types=form.cleaned_data.get("types"))
+                                       status=form.cleaned_data.get("status")
+                                       )
+            todo.types.set(types)
             return redirect("todo_view", pk=todo.pk)
         else:
             return render(request, "create_todo.html", {"form": form})
@@ -39,7 +41,7 @@ class TodoUpdateView(View):
         form = TodoForm(initial={
             "content": todo.content,
             "details": todo.details,
-            "types": todo.types,
+            "types": todo.types.all(),
             "status": todo.status
         })
         return render(request, "update_todo.html", {"form": form})
@@ -48,12 +50,12 @@ class TodoUpdateView(View):
         todo = get_object_or_404(Todo, id=kwargs['pk'])
         form = TodoForm(data=request.POST)
         if form.is_valid():
+            types = form.cleaned_data.pop("types")
             todo.content = form.cleaned_data.get("content")
             todo.details = form.cleaned_data.get("details")
             todo.status = form.cleaned_data.get("status")
-            todo.types = form.cleaned_data.get("types")
             todo.save()
-
+            todo.types.set(types)
             return redirect("todo_view", pk=todo.pk)
         else:
             return render(request, "update_todo.html", {"form": form})

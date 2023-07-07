@@ -17,9 +17,27 @@
 <div>
     <h1>Описание: {{ todo.content }}</h1>
     <h3 >Статус: {{ todo.status }}</h3>
-    <h3 >Статус: {{ todo.types }}</h3>
+    <h3 >Типы:</h3>
+    <p>
+        {% for type in todo.types.all %}
+            {{ type.name }}
+            {% if not forloop.last %},
+            {% else %} .
+            {% endif %}
+        {% endfor %}
+    </p>
     <p>Детальное описание: {{ todo.details }}</p>
     <p>Дата выполнения: {{ todo.created_at}}</p>
 </div>
 
 {% endblock %}
+
+<h2>Теги</h2>
+    <p>
+        {% for tag in article.tags.all %}
+            {{ tag.name }}
+            {% if not forloop.last %},
+            {% else %} .
+            {% endif %}
+        {% endfor %}
+    </p>
