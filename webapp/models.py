@@ -14,11 +14,11 @@ class Todo(AbstractModel):
     details = models.TextField(max_length=2000, null=True, blank=True, verbose_name="Детальное описание")
     status = models.ForeignKey('webapp.Status', related_name='status', null=True, blank=True, on_delete=models.PROTECT,
                                 verbose_name='Статус')
-    type = models.ForeignKey('webapp.Type', related_name='type', null=True, blank=True, on_delete=models.PROTECT,
+    types = models.ForeignKey('webapp.Type', related_name='types', null=True, blank=True, on_delete=models.PROTECT,
                                verbose_name='Тип')
 
     def __str__(self):
-        return f"{self.pk} {self.content} ({self.type}): {self.status}"
+        return f"{self.pk} {self.content} ({self.types}): {self.status}"
 
     class Meta:
         db_table = "To-Do list"

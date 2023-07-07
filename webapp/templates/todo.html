@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Задача{% endblock %}
+
+{% block link %}
+    <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url "todo_add" %}">Создать задачу</a>
+    </li>
+    <li class="nav-item">
+        <a href="{% url "update_todo" todo.pk %}" class="nav-link">Редактирование</a>
+    </li>
+    <li class="nav-item">
+        <a href="{% url "delete_todo" todo.pk %}" class="nav-link">Удаление</a>
+    </li>
+{% endblock %}
+
+{% block content %}
+<div>
+    <h1>Описание: {{ todo.content }}</h1>
+    <h3 >Статус: {{ todo.status }}</h3>
+    <h3 >Статус: {{ todo.types }}</h3>
+    <p>Детальное описание: {{ todo.details }}</p>
+    <p>Дата выполнения: {{ todo.created_at}}</p>
+</div>
+
+{% endblock %}

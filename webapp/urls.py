@@ -1,8 +1,16 @@
 from django.urls import path
 
-from webapp.views import todo_list_view
+from django.views.generic import RedirectView
+
+from webapp.views import \
+    TodoListView, TodoCreateView, TodoDeleteView, TodoDetailView, TodoUpdateView
+
 
 urlpatterns = [
-    path('', todo_list_view, name='index'),
+    path('', RedirectView.as_view(pattern_name="index")),
+    path('todos/', TodoListView.as_view(), name="index"),
+    path('todos/add/', TodoCreateView.as_view(), name="todo_add"),
+    path('todo/<int:pk>/', TodoDetailView.as_view(), name="todo_view"),
+    path('todo/<int:pk>/update/', TodoUpdateView.as_view(), name="update_todo"),
+    path('todo/<int:pk>/delete/', TodoDeleteView.as_view(), name="delete_todo")
 ]
-
