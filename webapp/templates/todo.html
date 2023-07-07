@@ -15,9 +15,9 @@
 
 {% block content %}
 <div>
-    <h1>Описание: {{ todo.content }}</h1>
-    <h3 >Статус: {{ todo.status }}</h3>
-    <h3 >Типы:</h3>
+    <h1 style="margin-top: 40px">Описание: {{ todo.content }}</h1>
+    <h4 style="margin-top: 20px">Статус: {{ todo.status }}</h4>
+    <h6 style="margin-top: 20px">Типы:</h6>
     <p>
         {% for type in todo.types.all %}
             {{ type.name }}
