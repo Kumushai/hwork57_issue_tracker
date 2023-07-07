@@ -1,26 +1,18 @@
 [
 {
     "model": "webapp.todo",
-    "pk": 1,
-    "fields": {
-        "created_at": "2023-07-07T10:00:36.998Z",
-        "updated_at": "2023-07-07T10:00:36.998Z",
-        "content": "Test",
-        "details": "",
-        "status": 1,
-        "type": 1
-    }
-},
-{
-    "model": "webapp.todo",
     "pk": 2,
     "fields": {
         "created_at": "2023-07-07T10:01:36.079Z",
-        "updated_at": "2023-07-07T10:01:36.079Z",
-        "content": "Homework",
-        "details": "class ArticleAdmin(admin.ModelAdmin):\r\n    list_display = ['id', 'title', 'author', 'created_at', 'status']\r\n    list_display_links = ['id', 'title']\r\n    list_filter = ['author']\r\n    search_fields = ['title', 'content']\r\n    fields = ['title', 'author', 'content', 'created_at', 'updated_at', 'status']\r\n    readonly_fields = ['created_at', 'updated_at']",
-        "status": 2,
-        "type": 1
+        "updated_at": "2023-07-07T12:40:41.590Z",
+        "content": "Homework bug2",
+        "details": "woooow\r\n\r\n    search_fields = ['title', 'content']\r\n    fields = ['title', 'author', 'content', 'created_at', 'updated_at', 'status']\r\n    readonly_fields = ['created_at', 'updated_at']",
+        "status": 3,
+        "types": [
+            1,
+            2,
+            3
+        ]
     }
 },
 {
@@ -28,11 +20,11 @@
     "pk": 3,
     "fields": {
         "created_at": "2023-07-07T10:01:50.377Z",
-        "updated_at": "2023-07-07T10:01:50.377Z",
+        "updated_at": "2023-07-07T12:21:19.643Z",
         "content": "test2",
         "details": "dfsf",
-        "status": 3,
-        "type": 3
+        "status": 2,
+        "types": []
     }
 },
 {
@@ -44,7 +36,7 @@
         "content": "test3",
         "details": "dfdf",
         "status": 1,
-        "type": 2
+        "types": []
     }
 },
 {
@@ -56,7 +48,7 @@
         "content": "test4",
         "details": "dfdfdf",
         "status": 2,
-        "type": 3
+        "types": []
     }
 },
 {
@@ -68,7 +60,48 @@
         "content": "test5",
         "details": "dfsfsfsf",
         "status": 3,
-        "type": 1
+        "types": []
+    }
+},
+{
+    "model": "webapp.todo",
+    "pk": 7,
+    "fields": {
+        "created_at": "2023-07-07T12:21:47.664Z",
+        "updated_at": "2023-07-07T12:21:47.664Z",
+        "content": "Yjjjj",
+        "details": "dfsfsfsfsf",
+        "status": 1,
+        "types": []
+    }
+},
+{
+    "model": "webapp.todo",
+    "pk": 8,
+    "fields": {
+        "created_at": "2023-07-07T12:32:46.208Z",
+        "updated_at": "2023-07-07T12:32:46.208Z",
+        "content": "yjd",
+        "details": "dfdf",
+        "status": 2,
+        "types": [
+            2,
+            3
+        ]
+    }
+},
+{
+    "model": "webapp.todo",
+    "pk": 9,
+    "fields": {
+        "created_at": "2023-07-07T12:44:08.190Z",
+        "updated_at": "2023-07-07T12:44:08.190Z",
+        "content": "ljfkdjfdf",
+        "details": "dfsf",
+        "status": 2,
+        "types": [
+            3
+        ]
     }
 },
 {
