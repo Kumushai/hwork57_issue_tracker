@@ -14,3 +14,6 @@ Todo.objects.filter(status__name__in=("New", "In Progress"), types__name__in=["T
 
 Не закрытые задачи, в названии которых содержится слово "bug" в любом регистре или относящиеся к типу "Баг".
 Todo.objects.filter(~Q(status__name='Done') & (Q(content__contains='bug') | Q(types__name='Bug')))
+
+Для всех задач только следующие поля: id, название задачи, название типа и название статуса.
+todo.values('id', 'content', 'status__name', 'types__name')
