@@ -17,7 +17,7 @@ class Todo(AbstractModel):
     types = models.ManyToManyField('webapp.Type', related_name='types', blank=True)
 
     def __str__(self):
-        return f"{self.pk} {self.content} ({self.types}): {self.status}"
+        return f"{self.pk} {self.content} ({self.types.all()}): {self.status}"
 
     class Meta:
         db_table = "To-Do list"

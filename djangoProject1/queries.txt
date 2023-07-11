@@ -1,0 +1,16 @@
+Этап 2
+from webapp.models import Todo, Status, Type
+from datetime import timedelta
+from django.utils import timezone
+
+todo = Todo.objects.all()
+
+Закрытые задачи за последний месяц от текущей даты (вхождение определяйте по дате последнего обновления).
+todo.filter(updated_at__gt=(timezone.now() - timedelta(days=30))).filter(status__name='Done')
+
+Задачи, имеющие один из указанных статусов И один из указанных типов
+(в запросе укажите 2 любых названия типа и 2 названия статуса, которые есть в вашей базе).
+Todo.objects.filter(status__name__in=("New", "In Progress"), types__name__in=["Task", "Bug"])
+
+Не закрытые задачи, в названии которых содержится слово "bug" в любом регистре или относящиеся к типу "Баг".
+Todo.objects.filter(~Q(status__name='Done') & (Q(content__contains='bug') | Q(types__name='Bug')))
