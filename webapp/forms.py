@@ -10,7 +10,7 @@ class TodoForm(forms.ModelForm):
 
     class Meta:
         model = Todo
-        fields = ["content", "status", "details", "types"]
+        fields = ["content", "status", "details", "types", "project"]
         widgets = {"details": widgets.Textarea(attrs={"cols": 30, "rows": 7}),
                    "types": widgets.CheckboxSelectMultiple()}
         error_messages = {"title": {"required": "Поле обязательное"}}

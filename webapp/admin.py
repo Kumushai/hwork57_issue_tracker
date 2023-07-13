@@ -9,14 +9,14 @@ admin.site.register(Project)
 
 
 class TodoAdmin(admin.ModelAdmin):
-    list_display = ['id', 'content', 'status', 'display_types']
+    list_display = ['id', 'content', 'status', 'display_types', 'project']
     list_display_links = ['id', 'content']
     list_filter = ['created_at']
     search_fields = ['content', 'status', 'types']
-    fields = ['content', 'status', 'details', 'types', 'projects']
+    fields = ['content', 'status', 'details', 'types', 'project']
 
     def display_types(self, obj):
-        return ", ".join([type.name for type in obj.types.all()])
+        return ", ".join([todo_type.name for todo_type in obj.types.all()])
 
     display_types.short_description = 'Types'
 
