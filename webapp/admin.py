@@ -1,10 +1,11 @@
 from django.contrib import admin
 
 
-from webapp.models import Todo, Status, Type
+from webapp.models import Todo, Status, Type, Project
 
 admin.site.register(Status)
 admin.site.register(Type)
+admin.site.register(Project)
 
 
 class TodoAdmin(admin.ModelAdmin):
@@ -12,7 +13,7 @@ class TodoAdmin(admin.ModelAdmin):
     list_display_links = ['id', 'content']
     list_filter = ['created_at']
     search_fields = ['content', 'status', 'types']
-    fields = ['content', 'status', 'details', 'types']
+    fields = ['content', 'status', 'details', 'types', 'projects']
 
     def display_types(self, obj):
         return ", ".join([type.name for type in obj.types.all()])

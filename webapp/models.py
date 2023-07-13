@@ -15,6 +15,8 @@ class Todo(AbstractModel):
     status = models.ForeignKey('webapp.Status', related_name='status', null=True, blank=True, on_delete=models.PROTECT,
                                 verbose_name='Статус')
     types = models.ManyToManyField('webapp.Type', related_name='types', blank=True)
+    projects = models.ForeignKey('webapp.Project', related_name='project', default='1', verbose_name='Проект',
+                                 on_delete=models.PROTECT)
 
     def __str__(self):
         return f"{self.pk} {self.content} ({self.types.all()}): {self.status}"
@@ -47,3 +49,10 @@ class Type(AbstractModel):
         db_table = "types"
         verbose_name = "Тип"
         verbose_name_plural = "Типы"
+
+
+class Project(models.Model):
+    title = models.CharField(max_length=30, verbose_name='Название')
+    description = models.TextField(max_length=2000, verbose_name='Описание')
+    start_date = models.DateField(verbose_name='Дата начала')
+    end_date = models.DateField(verbose_name='Дата окончания', blank=True, null=True)
