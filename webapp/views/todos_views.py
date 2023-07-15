@@ -1,24 +1,24 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
 
 from webapp.forms import TodoForm
 from webapp.models import Todo
 
 
-class TodoListView(TemplateView):
+class TodoListView(ListView):
     template_name = "index.html"
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["todos"] = Todo.objects.all()
-        return context
+    context_object_name = 'todos'
+    model = Todo
+    ordering = ['-created_at']
+    paginate_by = 5
+    paginate_orphans = 1
 
 
 class TodoCreateView(View):
     def get(self, request, *args, **kwargs):
         form = TodoForm()
-        return render(request, "create_todo.html", {"form": form})
+        return render(request, "todos/create_todo.html", {"form": form})
 
     def post(self, request, *args, **kwargs):
         form = TodoForm(data=request.POST)
@@ -31,7 +31,7 @@ class TodoCreateView(View):
             todo.types.set(types)
             return redirect("todo_view", pk=todo.pk)
         else:
-            return render(request, "create_todo.html", {"form": form})
+            return render(request, "todos/create_todo.html", {"form": form})
 
 
 class TodoUpdateView(View):
@@ -44,7 +44,7 @@ class TodoUpdateView(View):
             "types": todo.types.all(),
             "status": todo.status
         })
-        return render(request, "update_todo.html", {"form": form})
+        return render(request, "todos/update_todo.html", {"form": form})
 
     def post(self, request, *args, **kwargs):
         todo = get_object_or_404(Todo, id=kwargs['pk'])
@@ -58,13 +58,13 @@ class TodoUpdateView(View):
             todo.types.set(types)
             return redirect("todo_view", pk=todo.pk)
         else:
-            return render(request, "update_todo.html", {"form": form})
+            return render(request, "todos/update_todo.html", {"form": form})
 
 
 class TodoDeleteView(View):
     def get(self, request, *args, **kwargs):
         todo = get_object_or_404(Todo, id=kwargs['pk'])
-        return render(request, "delete_todo.html", {"todo": todo})
+        return render(request, "todos/delete_todo.html", {"todo": todo})
 
     def post(self, request, *args, **kwargs):
         todo = get_object_or_404(Todo, id=kwargs['pk'])
@@ -73,7 +73,7 @@ class TodoDeleteView(View):
 
 
 class TodoDetailView(TemplateView):
-    template_name = "todo.html"
+    template_name = "todos/todo.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

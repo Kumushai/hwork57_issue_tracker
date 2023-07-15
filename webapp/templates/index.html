@@ -16,6 +16,9 @@
     <h1>Список задач:</h1>
 
     <br>
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
     {% for todo in todos %}
 
         <div class="card" style="width: 18rem;">
@@ -46,5 +49,9 @@
         </div>
 
     {% endfor %}
+
+    {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
 
 {% endblock %}

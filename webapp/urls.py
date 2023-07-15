@@ -2,7 +2,7 @@ from django.urls import path
 
 from django.views.generic import RedirectView
 
-from webapp.views import \
+from webapp.views.todos_views import \
     TodoListView, TodoCreateView, TodoDeleteView, TodoDetailView, TodoUpdateView
 
 
