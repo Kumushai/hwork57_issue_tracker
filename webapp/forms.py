@@ -3,7 +3,7 @@ from django.core.exceptions import ValidationError
 from django.forms import widgets
 from django.utils.html import format_html
 
-from webapp.models import Todo
+from webapp.models import Todo, Project
 
 
 class TodoForm(forms.ModelForm):
@@ -30,6 +30,14 @@ class TodoForm(forms.ModelForm):
                 'а ты код исправить не можешь?! Убери слово "impossible"</span>')
             raise ValidationError(error_message)
         return details
+
+
+class ProjectForm(forms.ModelForm):
+
+    class Meta:
+        model = Project
+        fields = ['title', 'description', 'start_date', 'end_date']
+        widgets = {'description': widgets.Textarea(attrs={'cols': 30, 'rows': 5})}
 
 
 class SearchForm(forms.Form):
