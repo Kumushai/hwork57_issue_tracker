@@ -32,5 +32,6 @@ class TodoForm(forms.ModelForm):
         return details
 
 
-
+class SearchForm(forms.Form):
+    search = forms.CharField(max_length=100, required=False, label='Найти')
 

@@ -16,38 +16,44 @@
     <h1>Список задач:</h1>
 
     <br>
+    {% include 'partial/search_form.html' %}
+
     {% if is_paginated %}
         {% include 'partial/pagination.html' %}
     {% endif %}
-    {% for todo in todos %}
+    <div class="row">
+        {% for todo in todos %}
+            <div class="col-12 col-md-6 col-lg-4">
+                <div class="card mt-3" style="width: 18rem;">
 
-        <div class="card" style="width: 18rem;">
-
-            {% if todo.status.name == 'New' %}
-                <img src="{% static 'images/new.jpeg' %}" class="card-img-top" alt="...">
-            {% elif todo.status.name == 'In Progress' %}
-                <img src="{% static 'images/in_progress.jpeg' %}" class="card-img-top" alt="...">
-            {% elif todo.status.name == 'Done' %}
-                <img src="{% static 'images/done.jpeg' %}" class="card-img-top" alt="...">
-            {% endif %}
+                    {% if todo.status.name == 'New' %}
+                        <img src="{% static 'images/new.jpeg' %}" class="card-img-top" alt="...">
+                    {% elif todo.status.name == 'In Progress' %}
+                        <img src="{% static 'images/in_progress.jpeg' %}" class="card-img-top" alt="...">
+                    {% elif todo.status.name == 'Done' %}
+                        <img src="{% static 'images/done.jpeg' %}" class="card-img-top" alt="...">
+                    {% endif %}
 
 
-          <div class="card-body">
-            <h5 class="card-title">{{ todo.content }}</h5>
-            <p class="card-text">{{ todo.get_status_display }}</p>
-            <p class="card-text">{{ todo.get_type_display }}</p>
-            <p class="card-text">{{ todo.created_at }}</p>
-            <p class="card-text">{{ todo.updated_at }}</p>
+                  <div class="card-body">
+                    <h5 class="card-title">{{ todo.content }}</h5>
+                    <p class="card-text">{{ todo.get_status_display }}</p>
+                    <p class="card-text">{{ todo.get_type_display }}</p>
+                    <p class="card-text">{{ todo.created_at }}</p>
+                    <p class="card-text">{{ todo.updated_at }}</p>
 
-            <div class="btn-group">
-              <a href="{% url "todo_view" todo.pk %}" class="btn btn-primary" >Детали</a>
-              <a href="{% url "update_todo" todo.pk %}" class="btn btn-warning">Изменить</a>
-              <a href="{% url "delete_todo" todo.pk %}" class="btn btn-danger">Удалить</a>
+                    <div class="btn-group">
+                      <a href="{% url "todo_view" todo.pk %}" class="btn btn-primary" >Детали</a>
+                      <a href="{% url "update_todo" todo.pk %}" class="btn btn-warning">Изменить</a>
+                      <a href="{% url "delete_todo" todo.pk %}" class="btn btn-danger">Удалить</a>
+                    </div>
+
+                  </div>
+                </div>
             </div>
-
-          </div>
-        </div>
-
+    </div>
+        {% empty %}
+        <h2>задачи не найдены</h2>
     {% endfor %}
 
     {% if is_paginated %}
@@ -55,3 +61,6 @@
     {% endif %}
 
 {% endblock %}
+
+
+{#                <div class="card mt-3" style="width: 18rem;">#}
