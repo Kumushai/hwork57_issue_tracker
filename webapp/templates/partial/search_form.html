@@ -1,5 +1,5 @@
-<form class="text-center" action="" method="GET">
-    <label for="{{ form.search.id_for_label }}">{{ form.search.label }}:</label>
+<form class="text-center" action="" method="GET" style="margin-top: 30px; margin-bottom: 50px">
+    <label class="form-label" for="{{ form.search.id_for_label }}">{{ form.search.label }}:</label>
     {{ form.search }}
     <input type="submit" value="Поиск">
     {% for error in form.search.errors %}

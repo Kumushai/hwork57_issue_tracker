@@ -14,7 +14,7 @@ class TodoListView(ListView):
     model = Todo
     ordering = ['-created_at']
     paginate_by = 5
-    # paginate_orphans = 1
+    paginate_orphans = 1
 
     def dispatch(self, request, *args, **kwargs):
         self.form = self.get_search_form()

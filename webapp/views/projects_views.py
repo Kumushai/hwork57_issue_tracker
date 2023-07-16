@@ -14,7 +14,7 @@ class ProjectListView(ListView):
     model = Project
     ordering = ['-start_date']
     paginate_by = 5
-    # paginate_orphans = 1
+    paginate_orphans = 1
 
     def dispatch(self, request, *args, **kwargs):
         self.form = self.get_search_form()
