@@ -2,7 +2,7 @@ from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.http import urlencode
 from django.views import View
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 
 from webapp.forms import TodoForm, SearchForm
 from webapp.models import Todo
@@ -102,11 +102,8 @@ class TodoDeleteView(View):
         return redirect("index")
 
 
-class TodoDetailView(TemplateView):
+class TodoDetailView(DetailView):
     template_name = "todos/todo.html"
+    model = Todo
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["todo"] = get_object_or_404(Todo, id=kwargs['pk'])
-        return context
 
