@@ -4,6 +4,8 @@
 
     <h1>Заполните поля для создания задачи:</h1>
 
-    {% include "partial/form.html" with button_text="Создать"%}
+{#    {% include "partial/form.html" with button_text="Создать"%}#}
+    {% include 'partial/form.html' with action_url="" form_method='post' button_text="Создать" %}
+
 
 {% endblock %}

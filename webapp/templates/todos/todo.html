@@ -2,9 +2,7 @@
 {% block title %}Задача{% endblock %}
 
 {% block link %}
-    <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="{% url "todo_add" %}">Создать задачу</a>
-    </li>
+
     <li class="nav-item">
         <a href="{% url "update_todo" todo.pk %}" class="nav-link">Редактирование</a>
     </li>

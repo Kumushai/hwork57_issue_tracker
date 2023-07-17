@@ -54,22 +54,6 @@ class ProjectCreateView(CreateView):
     def get_success_url(self):
         return reverse('project_view', kwargs={'pk': self.object.pk})
 
-    # def get(self, request, *args, **kwargs):
-    #     form = ProjectForm()
-    #     return render(request, "projects/create_project.html", {"form": form})
-    #
-    # def post(self, request, *args, **kwargs):
-    #     form = ProjectForm(data=request.POST)
-    #     if form.is_valid():
-    #         project = Project.objects.create(title=form.cleaned_data.get("title"),
-    #                                    description=form.cleaned_data.get("description"),
-    #                                    start_date=form.cleaned_data.get("start_date"),
-    #                                    end_date=form.cleaned_data.get("end_date"),
-    #                                    )
-    #         return redirect("project_view", pk=project.pk)
-    #     else:
-    #         return render(request, "projects/create_project.html", {"form": form})
-
 
 class ProjectUpdateView(View):
 

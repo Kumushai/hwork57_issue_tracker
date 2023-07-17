@@ -17,7 +17,7 @@ class TodoForm(forms.ModelForm):
 
     class Meta:
         model = Todo
-        fields = ["content", "status", "details", "types", "project"]
+        fields = ["content", "status", "details", "types"]
         widgets = {"details": widgets.Textarea(attrs={"cols": 30, "rows": 7}),
                    "types": widgets.CheckboxSelectMultiple}
         error_messages = {"title": {"required": "Поле обязательное"}}
@@ -55,8 +55,25 @@ class ProjectForm(forms.ModelForm):
                    'start_date': forms.DateInput(attrs={'type': 'date'}),
                    'end_date': forms.DateInput(attrs={'type': 'date'}),
                    }
+        error_messages = {"title": {"required": "Поле обязательное"}}
+
+
+    # def clean(self):
+    #     cleaned_data = super().clean()
+    #     if cleaned_data['start_date'] > cleaned_data['end_date']:
+    #         raise ValidationError("Start date couldn't be later than end date!")
+    #     return cleaned_data
+
+    # def clean_start_date(self):
+    #     start_date = self.cleaned_data['start_date']
+    #     end_date = self.cleaned_data['end_date']
+    #     if start_date > end_date:
+    #         error_message = format_html('<span style="color: red;">"Start date couldn\'t be later than end date!"</span>')
+    #         raise ValidationError(error_message)
+    #     return start_date
 
 
 class SearchForm(forms.Form):
     search = forms.CharField(max_length=100, required=False, label='Найти')
+
 

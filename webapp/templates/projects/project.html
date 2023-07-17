@@ -1,19 +1,20 @@
 {% extends 'base.html' %}
-{% block title %}Проект: {{ project.title }} {% endblock %}
+{% block title %}Проект{% endblock %}
 
 {% block link %}
     <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="{% url "project_add" %}">Создать проект</a>
+          <a class="nav-link" aria-current="page" href="{% url "project_todo_add" project.pk %}">Создать задачу</a>
     </li>
     <li class="nav-item">
-        <a href="{% url "update_project" project.pk %}" class="nav-link">Редактирование</a>
+        <a href="{% url "update_project" project.pk %}" class="nav-link">Редактировать проект</a>
     </li>
     <li class="nav-item">
-        <a href="{% url "delete_project" project.pk %}" class="nav-link">Удаление</a>
+        <a href="{% url "delete_project" project.pk %}" class="nav-link">Удалить проект</a>
     </li>
 {% endblock %}
 
 {% block content %}
+    <h1 style="margin-top: 50px">Проект: {{ project.title }}</h1>
 <div>
     <p style="margin-top: 40px">Описание: {{ project.description }}</p>
     <h6 style="margin-top: 20px">Дата начала: {{ project.start_date }}</h6>
@@ -24,6 +25,7 @@
 
 <div class="row">
     {% for todo in projects %}
+
         <div class="col-12 col-md-6 col-lg-4" style="margin-top: 50px">
             <div class="card text-bg-dark mt-3" style="width: 18rem;">
                 <div class="card-body">

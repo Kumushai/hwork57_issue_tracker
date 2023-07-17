@@ -14,8 +14,8 @@ urlpatterns = [
     path('project/<int:pk>/', ProjectDetailView.as_view(), name="project_view"),
     path('project/<int:pk>/update/', ProjectUpdateView.as_view(), name="update_project"),
     path('project/<int:pk>/delete/', ProjectDeleteView.as_view(), name="delete_project"),
-    path('todos/add/', TodoCreateView.as_view(), name="todo_add"),
+    path('project/<int:pk>/todos/add/', TodoCreateView.as_view(), name="project_todo_add"),
     path('todo/<int:pk>/', TodoDetailView.as_view(), name="todo_view"),
     path('todo/<int:pk>/update/', TodoUpdateView.as_view(), name="update_todo"),
-    path('todo/<int:pk>/delete/', TodoDeleteView.as_view(), name="delete_todo")
+    path('todo/<int:pk>/delete/', TodoDeleteView.as_view(), name="delete_todo"),
 ]
