@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Создание{% endblock %}
+{% block content %}
+
+    <h1>Заполните поля для создания проекта:</h1>
+
+    {% include "partial/form.html" with button_text="Создать"%}
+
+{% endblock %}

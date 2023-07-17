@@ -1,8 +1,9 @@
 from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
 from django.utils.http import urlencode
 from django.views import View
-from django.views.generic import ListView, DetailView
+from django.views.generic import ListView, DetailView, CreateView
 
 from webapp.forms import ProjectForm, SearchForm
 from webapp.models import Todo, Project
@@ -45,22 +46,29 @@ class ProjectListView(ListView):
         return queryset
 
 
-class ProjectCreateView(View):
-    def get(self, request, *args, **kwargs):
-        form = ProjectForm()
-        return render(request, "projects/create_project.html", {"form": form})
+class ProjectCreateView(CreateView):
+    template_name = 'projects/create_project.html'
+    model = Project
+    form_class = ProjectForm
 
-    def post(self, request, *args, **kwargs):
-        form = ProjectForm(data=request.POST)
-        if form.is_valid():
-            project = Project.objects.create(title=form.cleaned_data.get("title"),
-                                       description=form.cleaned_data.get("description"),
-                                       start_date=form.cleaned_data.get("start_date"),
-                                       end_date=form.cleaned_data.get("end_date"),
-                                       )
-            return redirect("project_view", pk=project.pk)
-        else:
-            return render(request, "projects/create_project.html", {"form": form})
+    def get_success_url(self):
+        return reverse('project_view', kwargs={'pk': self.object.pk})
+
+    # def get(self, request, *args, **kwargs):
+    #     form = ProjectForm()
+    #     return render(request, "projects/create_project.html", {"form": form})
+    #
+    # def post(self, request, *args, **kwargs):
+    #     form = ProjectForm(data=request.POST)
+    #     if form.is_valid():
+    #         project = Project.objects.create(title=form.cleaned_data.get("title"),
+    #                                    description=form.cleaned_data.get("description"),
+    #                                    start_date=form.cleaned_data.get("start_date"),
+    #                                    end_date=form.cleaned_data.get("end_date"),
+    #                                    )
+    #         return redirect("project_view", pk=project.pk)
+    #     else:
+    #         return render(request, "projects/create_project.html", {"form": form})
 
 
 class ProjectUpdateView(View):

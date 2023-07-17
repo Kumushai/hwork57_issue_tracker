@@ -8,11 +8,18 @@ from webapp.models import Todo, Project
 
 class TodoForm(forms.ModelForm):
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for v in self.visible_fields():
+            if not isinstance(v.field.widget, widgets.CheckboxSelectMultiple):
+                v.field.widget.attrs["class"] = "form-control"
+
     class Meta:
         model = Todo
         fields = ["content", "status", "details", "types", "project"]
         widgets = {"details": widgets.Textarea(attrs={"cols": 30, "rows": 7}),
-                   "types": widgets.CheckboxSelectMultiple()}
+                   "types": widgets.CheckboxSelectMultiple}
         error_messages = {"title": {"required": "Поле обязательное"}}
 
     def clean_content(self):
@@ -34,10 +41,20 @@ class TodoForm(forms.ModelForm):
 
 class ProjectForm(forms.ModelForm):
 
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+
+        for v in self.visible_fields():
+            if not isinstance(v.field.widget, widgets.CheckboxSelectMultiple):
+                v.field.widget.attrs["class"] = "form-control"
+
     class Meta:
         model = Project
         fields = ['title', 'description', 'start_date', 'end_date']
-        widgets = {'description': widgets.Textarea(attrs={'cols': 30, 'rows': 5})}
+        widgets = {'description': widgets.Textarea(attrs={'cols': 30, 'rows': 5}),
+                   'start_date': forms.DateInput(attrs={'type': 'date'}),
+                   'end_date': forms.DateInput(attrs={'type': 'date'}),
+                   }
 
 
 class SearchForm(forms.Form):
