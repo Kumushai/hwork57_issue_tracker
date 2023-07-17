@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}Проект: {{ project.title }} {% endblock %}
+
+{% block link %}
+    <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="{% url "project_add" %}">Создать проект</a>
+    </li>
+    <li class="nav-item">
+        <a href="{% url "update_project" project.pk %}" class="nav-link">Редактирование</a>
+    </li>
+    <li class="nav-item">
+        <a href="{% url "delete_project" project.pk %}" class="nav-link">Удаление</a>
+    </li>
+{% endblock %}
+
+{% block content %}
+<div>
+    <p style="margin-top: 40px">Описание: {{ project.description }}</p>
+    <h4 style="margin-top: 20px">Дата начала: {{ project.start_date }}</h4>
+    <h4 style="margin-top: 20px">Дата окончания: {{ project.end_date }}</h4>
+
+</div>
+
+{% endblock %}
+

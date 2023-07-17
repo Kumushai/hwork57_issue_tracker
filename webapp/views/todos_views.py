@@ -9,7 +9,7 @@ from webapp.models import Todo
 
 
 class TodoListView(ListView):
-    template_name = "index.html"
+    template_name = "projects/index.html"
     context_object_name = 'todos'
     model = Todo
     ordering = ['-created_at']

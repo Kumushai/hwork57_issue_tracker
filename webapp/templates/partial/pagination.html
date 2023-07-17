@@ -10,7 +10,7 @@
 
         <form class="current-page" method="get">
             <label for="page">
-                {% if search %}<input type="hidden" name="search" value="{{ search }}">{% endif %}
+                {% if search_value %}<input type="hidden" name="search" value="{{ search_value }}">{% endif %}
                 Страница <input type="text" name="page" id="page" value="{{ page_obj.number }}">
                 из {{ page_obj.paginator.num_pages }}.
             </label>

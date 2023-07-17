@@ -2,14 +2,14 @@ from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils.http import urlencode
 from django.views import View
-from django.views.generic import TemplateView, ListView
+from django.views.generic import ListView, DetailView
 
 from webapp.forms import ProjectForm, SearchForm
 from webapp.models import Todo, Project
 
 
 class ProjectListView(ListView):
-    template_name = "index.html"
+    template_name = "projects/index.html"
     context_object_name = 'projects'
     model = Project
     ordering = ['-start_date']
@@ -100,11 +100,9 @@ class ProjectDeleteView(View):
         return redirect("index")
 
 
-class ProjectDetailView(TemplateView):
+class ProjectDetailView(DetailView):
     template_name = "projects/project.html"
+    model = Project
 
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["project"] = get_object_or_404(Project, id=kwargs['pk'])
-        return context
-
+    def get_queryset(self):
+        return Project.objects.all()
