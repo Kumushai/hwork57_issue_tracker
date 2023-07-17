@@ -16,10 +16,48 @@
 {% block content %}
 <div>
     <p style="margin-top: 40px">Описание: {{ project.description }}</p>
-    <h4 style="margin-top: 20px">Дата начала: {{ project.start_date }}</h4>
-    <h4 style="margin-top: 20px">Дата окончания: {{ project.end_date }}</h4>
+    <h6 style="margin-top: 20px">Дата начала: {{ project.start_date }}</h6>
+    <h6 style="margin-top: 20px">Дата окончания: {{ project.end_date }}</h6>
 
 </div>
+
+
+
+<div class="row">
+    {% for todo in projects %}
+        <div class="col-12 col-md-6 col-lg-4" style="margin-top: 50px">
+            <div class="card text-bg-dark mt-3" style="width: 18rem;">
+                <div class="card-body">
+                    <h3 class="card-title">{{ todo.content }}</h3>
+                    <h5 class="card-text">{{ todo.get_status_display }}</h5>
+                    <p class="card-text">{{ todo.get_type_display }}</p>
+                    <p class="card-text">{{ todo.created_at }}</p>
+                    <p class="card-text">{{ todo.updated_at }}</p>
+                </div>
+
+                <div class="btn-group" role="group">
+                    <a href="{% url "todo_view" todo.pk %}" class="btn btn-info"><i
+                            class="bi bi-blockquote-right"></i></a>
+                    <a href="{% url "update_todo" todo.pk %}"
+                       class="btn btn-info"><i class="bi bi-pencil-square"></i></a>
+                    <a href="{% url "delete_todo" todo.pk %}" class="btn btn-info"><i
+                            class="bi bi-trash3"></i></a>
+                </div>
+
+            </div>
+        </div>
+
+        {% empty %}
+        <h2>задачи не найдены</h2>
+    {% endfor %}
+</div>
+
+
+
+
+
+
+
 
 {% endblock %}
 

@@ -2,7 +2,7 @@
 {% load static %}
 {% block link %}
     <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url "project_add" %}">Создать задачу</a>
+          <a class="nav-link active" aria-current="page" href="{% url "project_add" %}">Создать проект</a>
     </li>
 {% endblock %}
 {% block content %}
@@ -18,7 +18,7 @@
 
     <div class="row">
         {% for project in projects %}
-            <div class="col-12 col-md-6 col-lg-4">
+            <div class="col-12 col-md-6 col-lg-4" style="margin-top: 30px;">
                 <div class="card text-bg-dark mt-3" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">{{ project.title }}</h5>

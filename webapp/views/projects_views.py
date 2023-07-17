@@ -105,4 +105,11 @@ class ProjectDetailView(DetailView):
     model = Project
 
     def get_queryset(self):
-        return Project.objects.all()
+        data_test = Project.objects.all()
+        print(data_test)
+        return data_test
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['projects'] = self.object.projects.order_by("-updated_at")
+        return context

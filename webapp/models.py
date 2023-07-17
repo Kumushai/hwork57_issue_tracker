@@ -15,7 +15,7 @@ class Todo(AbstractModel):
     status = models.ForeignKey('webapp.Status', related_name='status', null=True, blank=True, on_delete=models.PROTECT,
                                 verbose_name='Статус')
     types = models.ManyToManyField('webapp.Type', related_name='types', blank=True)
-    project = models.ForeignKey('webapp.Project', related_name='project', default='1', verbose_name='Проект',
+    project = models.ForeignKey('webapp.Project', related_name='projects', default='1', verbose_name='Проект',
                                  on_delete=models.PROTECT)
 
     def __str__(self):
