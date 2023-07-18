@@ -59,10 +59,11 @@ class ProjectForm(forms.ModelForm):
 
     def clean(self):
         cleaned_data = super().clean()
-        if cleaned_data['start_date'] > cleaned_data['end_date']:
-            error_message = format_html(
-                '<span style="color: red;">"Start date couldn\'t be later than end date!"</span>')
-            raise ValidationError(error_message)
+        if cleaned_data['end_date']:
+            if cleaned_data['start_date'] > cleaned_data['end_date']:
+                error_message = format_html(
+                    '<span style="color: red;">"Start date couldn\'t be later than end date!"</span>')
+                raise ValidationError(error_message)
         return cleaned_data
 
 
