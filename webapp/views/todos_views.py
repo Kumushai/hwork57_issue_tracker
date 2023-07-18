@@ -1,3 +1,4 @@
+from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse
 from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
@@ -37,9 +38,20 @@ class TodoDeleteView(DeleteView):
     def get_success_url(self):
         return reverse('project_view', kwargs={'pk': self.object.project.pk})
 
+    def delete(self, request, *args, **kwargs):
+        self.object = super().get_object(queryset=None)
+        self.object.is_deleted = True
+        self.object.save()
+        return HttpResponseRedirect(self.get_success_url())
+
 
 class TodoDetailView(DetailView):
     template_name = "todos/todo.html"
     model = Todo
 
+    def get_object(self, queryset=None):
+        obj = super().get_object(queryset=queryset)
+        if obj.is_deleted:
+            raise Http404("Задача не найдена")
+        return obj
 

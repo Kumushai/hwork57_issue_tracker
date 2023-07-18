@@ -1,12 +1,10 @@
 from django.db.models import Q
-from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse, reverse_lazy
 from django.utils.http import urlencode
-from django.views import View
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from webapp.forms import ProjectForm, SearchForm
-from webapp.models import Todo, Project
+from webapp.models import Project
 
 
 class ProjectListView(ListView):
@@ -43,6 +41,7 @@ class ProjectListView(ListView):
         if self.search_value:
             queryset = queryset.filter(Q(title__icontains=self.search_value) |
                                        Q(description__icontains=self.search_value))
+        queryset = queryset.exclude(projects__is_deleted=True)
         return queryset
 
 
