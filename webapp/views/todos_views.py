@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse
 from django.views import View
-from django.views.generic import DetailView, CreateView
+from django.views.generic import DetailView, CreateView, UpdateView
 
 from webapp.forms import TodoForm
 from webapp.models import Todo, Project
@@ -16,34 +17,17 @@ class TodoCreateView(CreateView):
         todo.project = project
         todo.save()
         form.save_m2m()
-        return redirect('project_view', pk=project.pk)
+        return redirect('todo_view', pk=todo.pk)
 
 
-class TodoUpdateView(View):
+class TodoUpdateView(UpdateView):
+    model = Todo
+    template_name = 'todos/update_todo.html'
+    form_class = TodoForm
+    context_object_name = 'todo'
 
-    def get(self, request, *args, **kwargs):
-        todo = get_object_or_404(Todo, id=kwargs['pk'])
-        form = TodoForm(initial={
-            "content": todo.content,
-            "details": todo.details,
-            "types": todo.types.all(),
-            "status": todo.status
-        })
-        return render(request, "todos/update_todo.html", {"form": form})
-
-    def post(self, request, *args, **kwargs):
-        todo = get_object_or_404(Todo, id=kwargs['pk'])
-        form = TodoForm(data=request.POST)
-        if form.is_valid():
-            types = form.cleaned_data.pop("types")
-            todo.content = form.cleaned_data.get("content")
-            todo.details = form.cleaned_data.get("details")
-            todo.status = form.cleaned_data.get("status")
-            todo.save()
-            todo.types.set(types)
-            return redirect("todo_view", pk=todo.pk)
-        else:
-            return render(request, "todos/update_todo.html", {"form": form})
+    def get_success_url(self):
+        return reverse('todo_view', kwargs={'pk': self.object.pk})
 
 
 class TodoDeleteView(View):

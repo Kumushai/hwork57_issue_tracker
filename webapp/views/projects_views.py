@@ -3,7 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse
 from django.utils.http import urlencode
 from django.views import View
-from django.views.generic import ListView, DetailView, CreateView
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from webapp.forms import ProjectForm, SearchForm
 from webapp.models import Todo, Project
@@ -55,30 +55,14 @@ class ProjectCreateView(CreateView):
         return reverse('project_view', kwargs={'pk': self.object.pk})
 
 
-class ProjectUpdateView(View):
+class ProjectUpdateView(UpdateView):
+    model = Project
+    template_name = 'projects/update_project.html'
+    form_class = ProjectForm
+    context_object_name = 'project'
 
-    def get(self, request, *args, **kwargs):
-        project = get_object_or_404(Project, id=kwargs['pk'])
-        form = ProjectForm(initial={
-            "title": project.title,
-            "description": project.description,
-            "start_date": project.start_date,
-            "end_date": project.end_date
-        })
-        return render(request, "projects/update_project.html", {"form": form})
-
-    def post(self, request, *args, **kwargs):
-        project = get_object_or_404(Project, id=kwargs['pk'])
-        form = ProjectForm(data=request.POST)
-        if form.is_valid():
-            project.title = form.cleaned_data.get("title")
-            project.description = form.cleaned_data.get("description")
-            project.start_date = form.cleaned_data.get("start_date")
-            project.end_date = form.cleaned_data.get('end_date')
-            project.save()
-            return redirect("project_view", pk=project.pk)
-        else:
-            return render(request, "projects/update_project.html", {"form": form})
+    def get_success_url(self):
+        return reverse('project_view', kwargs={'pk': self.object.pk})
 
 
 class ProjectDeleteView(View):
