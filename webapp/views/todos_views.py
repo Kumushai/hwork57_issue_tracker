@@ -1,7 +1,6 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse
-from django.views import View
-from django.views.generic import DetailView, CreateView, UpdateView
+from django.views.generic import DetailView, CreateView, UpdateView, DeleteView
 
 from webapp.forms import TodoForm
 from webapp.models import Todo, Project
@@ -30,15 +29,13 @@ class TodoUpdateView(UpdateView):
         return reverse('todo_view', kwargs={'pk': self.object.pk})
 
 
-class TodoDeleteView(View):
-    def get(self, request, *args, **kwargs):
-        todo = get_object_or_404(Todo, id=kwargs['pk'])
-        return render(request, "todos/delete_todo.html", {"todo": todo})
+class TodoDeleteView(DeleteView):
+    template_name = 'todos/delete_todo.html'
+    model = Todo
+    context_object_name = 'todo'
 
-    def post(self, request, *args, **kwargs):
-        todo = get_object_or_404(Todo, id=kwargs['pk'])
-        todo.delete()
-        return redirect("index")
+    def get_success_url(self):
+        return reverse('project_view', kwargs={'pk': self.object.project.pk})
 
 
 class TodoDetailView(DetailView):

@@ -16,7 +16,7 @@ class Todo(AbstractModel):
                                 verbose_name='Статус')
     types = models.ManyToManyField('webapp.Type', related_name='types', blank=True)
     project = models.ForeignKey('webapp.Project', related_name='projects', default='1', verbose_name='Проект',
-                                 on_delete=models.PROTECT)
+                                 on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.pk} {self.content} ({self.types.all()}): {self.status}"

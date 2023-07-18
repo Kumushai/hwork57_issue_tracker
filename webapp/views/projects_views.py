@@ -1,6 +1,6 @@
 from django.db.models import Q
 from django.shortcuts import render, redirect, get_object_or_404
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils.http import urlencode
 from django.views import View
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -65,15 +65,11 @@ class ProjectUpdateView(UpdateView):
         return reverse('project_view', kwargs={'pk': self.object.pk})
 
 
-class ProjectDeleteView(View):
-    def get(self, request, *args, **kwargs):
-        project = get_object_or_404(Project, id=kwargs['pk'])
-        return render(request, "projects/delete_project.html", {"project": project})
-
-    def post(self, request, *args, **kwargs):
-        project = get_object_or_404(Project, id=kwargs['pk'])
-        project.delete()
-        return redirect("index")
+class ProjectDeleteView(DeleteView):
+    template_name = 'projects/delete_project.html'
+    model = Project
+    context_object_name = 'project'
+    success_url = reverse_lazy('index')
 
 
 class ProjectDetailView(DetailView):
