@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import Q
 from django.urls import reverse, reverse_lazy
 from django.utils.http import urlencode
@@ -45,7 +46,7 @@ class ProjectListView(ListView):
         return queryset
 
 
-class ProjectCreateView(CreateView):
+class ProjectCreateView(LoginRequiredMixin, CreateView):
     template_name = 'projects/create_project.html'
     model = Project
     form_class = ProjectForm
