@@ -6,9 +6,10 @@ from webapp.views import TodoCreateView, TodoDetailView, TodoUpdateView, TodoDel
 from webapp.views.projects_views import ProjectListView, ProjectCreateView, ProjectDetailView, \
     ProjectDeleteView, ProjectUpdateView
 
+app_name = 'webapp'
 
 urlpatterns = [
-    path('', RedirectView.as_view(pattern_name="index")),
+    path('', RedirectView.as_view(pattern_name="webapp:index")),
     path('projects/', ProjectListView.as_view(), name="index"),
     path('projects/add/', ProjectCreateView.as_view(), name="project_add"),
     path('project/<int:pk>/', ProjectDetailView.as_view(), name="project_view"),

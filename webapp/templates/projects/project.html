@@ -3,13 +3,13 @@
 
 {% block link %}
     <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="{% url "project_todo_add" project.pk %}">Создать задачу</a>
+          <a class="nav-link" aria-current="page" href="{% url "webapp:project_todo_add" project.pk %}">Создать задачу</a>
     </li>
     <li class="nav-item">
-        <a href="{% url "update_project" project.pk %}" class="nav-link">Редактировать проект</a>
+        <a href="{% url "webapp:update_project" project.pk %}" class="nav-link">Редактировать проект</a>
     </li>
     <li class="nav-item">
-        <a href="{% url "delete_project" project.pk %}" class="nav-link">Удалить проект</a>
+        <a href="{% url "webapp:delete_project" project.pk %}" class="nav-link">Удалить проект</a>
     </li>
 {% endblock %}
 
@@ -37,11 +37,11 @@
                 </div>
 
                 <div class="btn-group" role="group">
-                    <a href="{% url "todo_view" todo.pk %}" class="btn btn-info"><i
+                    <a href="{% url "webapp:todo_view" todo.pk %}" class="btn btn-info"><i
                             class="bi bi-blockquote-right"></i></a>
-                    <a href="{% url "update_todo" todo.pk %}"
+                    <a href="{% url "webapp:update_todo" todo.pk %}"
                        class="btn btn-info"><i class="bi bi-pencil-square"></i></a>
-                    <a href="{% url "delete_todo" todo.pk %}" class="btn btn-info"><i
+                    <a href="{% url "webapp:delete_todo" todo.pk %}" class="btn btn-info"><i
                             class="bi bi-trash3"></i></a>
                 </div>
 

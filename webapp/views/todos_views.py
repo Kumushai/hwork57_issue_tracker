@@ -17,7 +17,7 @@ class TodoCreateView(CreateView):
         todo.project = project
         todo.save()
         form.save_m2m()
-        return redirect('todo_view', pk=todo.pk)
+        return redirect('webapp:todo_view', pk=todo.pk)
 
 
 class TodoUpdateView(UpdateView):
@@ -27,7 +27,7 @@ class TodoUpdateView(UpdateView):
     context_object_name = 'todo'
 
     def get_success_url(self):
-        return reverse('todo_view', kwargs={'pk': self.object.pk})
+        return reverse('webapp:todo_view', kwargs={'pk': self.object.pk})
 
 
 class TodoDeleteView(DeleteView):
@@ -36,7 +36,7 @@ class TodoDeleteView(DeleteView):
     context_object_name = 'todo'
 
     def get_success_url(self):
-        return reverse('project_view', kwargs={'pk': self.object.project.pk})
+        return reverse('webapp:project_view', kwargs={'pk': self.object.project.pk})
 
     def delete(self, request, *args, **kwargs):
         self.object = super().get_object(queryset=None)

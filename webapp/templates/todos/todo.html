@@ -4,10 +4,10 @@
 {% block link %}
 
     <li class="nav-item">
-        <a href="{% url "update_todo" todo.pk %}" class="nav-link">Редактирование</a>
+        <a href="{% url "webapp:update_todo" todo.pk %}" class="nav-link">Редактирование</a>
     </li>
     <li class="nav-item">
-        <a href="{% url "delete_todo" todo.pk %}" class="nav-link">Удаление</a>
+        <a href="{% url "webapp:delete_todo" todo.pk %}" class="nav-link">Удаление</a>
     </li>
 {% endblock %}
 
