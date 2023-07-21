@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse
@@ -7,7 +8,7 @@ from webapp.forms import TodoForm
 from webapp.models import Todo, Project
 
 
-class TodoCreateView(CreateView):
+class TodoCreateView(LoginRequiredMixin, CreateView):
     template_name = 'todos/create_todo.html'
     form_class = TodoForm
 
@@ -20,7 +21,7 @@ class TodoCreateView(CreateView):
         return redirect('webapp:todo_view', pk=todo.pk)
 
 
-class TodoUpdateView(UpdateView):
+class TodoUpdateView(LoginRequiredMixin, UpdateView):
     model = Todo
     template_name = 'todos/update_todo.html'
     form_class = TodoForm
@@ -30,7 +31,7 @@ class TodoUpdateView(UpdateView):
         return reverse('webapp:todo_view', kwargs={'pk': self.object.pk})
 
 
-class TodoDeleteView(DeleteView):
+class TodoDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'todos/delete_todo.html'
     model = Todo
     context_object_name = 'todo'
