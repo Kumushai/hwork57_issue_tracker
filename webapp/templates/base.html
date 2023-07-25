@@ -29,12 +29,15 @@
             <li class="nav-item">
                   <a class="nav-link active" aria-current="page" href="{% url "accounts:logout" %}">Выход</a>
             </li>
+            <li class="nav-item">
+                <p>Здравствуйте {{ request.user.username }}</p>
+            </li>
         {% else %}
             <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Зарегистрироваться</a>
+                  <a class="nav-link active" aria-current="page" href="{% url "accounts:register" %}?next={{ request.path }}">Зарегистрироваться</a>
             </li>
             <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="{% url "accounts:login" %}">Войти</a>
+                  <a class="nav-link active" aria-current="page" href="{% url "accounts:login" %}?next={{ request.get_full_path }}">Войти</a>
             </li>
         {% endif %}
       </ul>
