@@ -1,4 +1,4 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import redirect, get_object_or_404
 from django.urls import reverse
@@ -8,7 +8,7 @@ from webapp.forms import TodoForm
 from webapp.models import Todo, Project
 
 
-class TodoCreateView(LoginRequiredMixin, CreateView):
+class TodoCreateView(PermissionRequiredMixin, CreateView):
     template_name = 'todos/create_todo.html'
     form_class = TodoForm
 
@@ -20,8 +20,14 @@ class TodoCreateView(LoginRequiredMixin, CreateView):
         form.save_m2m()
         return redirect('webapp:todo_view', pk=todo.pk)
 
+    def has_permission(self):
+        project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
+        user = self.request.user
+        groups = ['Project Manager', 'Team Lead', 'Developer']
+        return self.request.user.groups.filter(name__in=groups) and user in project.user.all()
 
-class TodoUpdateView(LoginRequiredMixin, UpdateView):
+
+class TodoUpdateView(PermissionRequiredMixin, UpdateView):
     model = Todo
     template_name = 'todos/update_todo.html'
     form_class = TodoForm
@@ -30,14 +36,26 @@ class TodoUpdateView(LoginRequiredMixin, UpdateView):
     def get_success_url(self):
         return reverse('webapp:todo_view', kwargs={'pk': self.object.pk})
 
+    def has_permission(self):
+        project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
+        user = self.request.user
+        groups = ['Project Manager', 'Team Lead', 'Developer']
+        return self.request.user.groups.filter(name__in=groups) and user in project.user.all()
 
-class TodoDeleteView(LoginRequiredMixin, DeleteView):
+
+class TodoDeleteView(PermissionRequiredMixin, DeleteView):
     template_name = 'todos/delete_todo.html'
     model = Todo
     context_object_name = 'todo'
 
     def get_success_url(self):
         return reverse('webapp:project_view', kwargs={'pk': self.object.project.pk})
+
+    def has_permission(self):
+        project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
+        user = self.request.user
+        groups = ['Project Manager', 'Team Lead']
+        return self.request.user.groups.filter(name__in=groups) and user in project.user.all()
 
     def delete(self, request, *args, **kwargs):
         self.object = super().get_object(queryset=None)

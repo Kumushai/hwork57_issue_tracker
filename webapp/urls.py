@@ -4,7 +4,8 @@ from django.views.generic import RedirectView
 
 from webapp.views import TodoCreateView, TodoDetailView, TodoUpdateView, TodoDeleteView
 from webapp.views.projects_views import ProjectListView, ProjectCreateView, ProjectDetailView, \
-    ProjectDeleteView, ProjectUpdateView
+    ProjectDeleteView, ProjectUpdateView, \
+    ProjectUserView
 
 app_name = 'webapp'
 
@@ -19,4 +20,5 @@ urlpatterns = [
     path('todo/<int:pk>/', TodoDetailView.as_view(), name="todo_view"),
     path('todo/<int:pk>/update/', TodoUpdateView.as_view(), name="update_todo"),
     path('todo/<int:pk>/delete/', TodoDeleteView.as_view(), name="delete_todo"),
+    path('project/<int:pk>/users', ProjectUserView.as_view(), name='project_user'),
 ]

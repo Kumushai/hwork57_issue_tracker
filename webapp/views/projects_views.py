@@ -1,8 +1,13 @@
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import PermissionRequiredMixin
+from django.contrib.auth.models import User
 from django.db.models import Q
+from django.http import HttpResponseRedirect
+from django.shortcuts import get_object_or_404, redirect, render
 from django.urls import reverse, reverse_lazy
 from django.utils.http import urlencode
-from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.views import View
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView, TemplateView
 
 from webapp.forms import ProjectForm, SearchForm
 from webapp.models import Project
@@ -89,3 +94,42 @@ class ProjectDetailView(DetailView):
         context = super().get_context_data(**kwargs)
         context['projects'] = self.object.projects.order_by("-updated_at")
         return context
+
+
+class ProjectUserView(View):
+
+    def get(self, request, pk):
+        project = get_object_or_404(Project, pk=pk)
+        all_users = User.objects.all()
+
+        context = {
+            'project': project,
+            'all_users': all_users
+        }
+
+        return render(request, 'projects/projects_users.html', context)
+
+    def post(self, request, pk):
+        project = get_object_or_404(Project, pk=pk)
+        all_users = User.objects.all()
+
+        if 'add_user' in request.POST:
+            user_id = request.POST.get('user_id')
+            if user_id:
+                user = get_object_or_404(User, pk=user_id)
+                project.user.add(user)
+                return redirect('webapp:project_user', pk=project.pk)
+
+        elif 'remove_user' in request.POST:
+            user_id = request.POST.get('user_id')
+            if user_id:
+                user = get_object_or_404(User, pk=user_id)
+                project.user.remove(user)
+                return redirect('webapp:project_user', pk=project.pk)
+
+        context = {
+            'project': project,
+            'all_users': all_users
+        }
+
+        return render(request, 'projects/projects_users.html', context)

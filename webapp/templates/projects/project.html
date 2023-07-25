@@ -12,6 +12,9 @@
         <li class="nav-item">
             <a href="{% url "webapp:delete_project" project.pk %}" class="nav-link">Удалить проект</a>
         </li>
+        <li class="nav-item">
+            <a href="{% url "webapp:project_user" project.pk %}" class="btn btn-info">Пользователи</a>
+        </li>
     {% endif %}
 {% endblock %}
 
