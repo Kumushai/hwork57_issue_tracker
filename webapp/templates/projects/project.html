@@ -3,19 +3,27 @@
 
 {% block link %}
     {% if request.user.is_authenticated %}
-        <li class="nav-item">
-            <a class="nav-link" aria-current="page" href="{% url "webapp:project_todo_add" project.pk %}">Создать
-                задачу</a>
-        </li>
-        <li class="nav-item">
-            <a href="{% url "webapp:update_project" project.pk %}" class="nav-link">Редактировать проект</a>
-        </li>
-        <li class="nav-item">
-            <a href="{% url "webapp:delete_project" project.pk %}" class="nav-link">Удалить проект</a>
-        </li>
-        <li class="nav-item">
-            <a href="{% url "webapp:project_user" project.pk %}" class="btn btn-info">Пользователи</a>
-        </li>
+        {% if perms.webapp.add_todo and user in project.user.all %}
+            <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="{% url "webapp:project_todo_add" project.pk %}">Создать
+                    задачу</a>
+            </li>
+        {% endif %}
+        {% if perms.webapp.change_project %}
+            <li class="nav-item">
+                <a href="{% url "webapp:update_project" project.pk %}" class="nav-link">Редактировать проект</a>
+            </li>
+        {% endif %}
+        {% if perms.webapp.delete_project %}
+            <li class="nav-item">
+                <a href="{% url "webapp:delete_project" project.pk %}" class="nav-link">Удалить проект</a>
+            </li>
+        {% endif %}
+        {% if perms.webapp.add_project_user and perms.webapp.delete_project_user and user in project.user.all %}
+            <li class="nav-item">
+                <a href="{% url "webapp:project_user" project.pk %}" class="btn btn-info">Пользователи</a>
+            </li>
+        {% endif %}
     {% endif %}
 {% endblock %}
 
@@ -46,10 +54,14 @@
                         <a href="{% url "webapp:todo_view" todo.pk %}" class="btn btn-info"><i
                                 class="bi bi-blockquote-right"></i></a>
                         {% if request.user.is_authenticated %}
-                            <a href="{% url "webapp:update_todo" todo.pk %}"
-                               class="btn btn-info"><i class="bi bi-pencil-square"></i></a>
-                            <a href="{% url "webapp:delete_todo" todo.pk %}" class="btn btn-info"><i
-                                    class="bi bi-trash3"></i></a>
+                            {% if perms.webapp.change_todo and user in project.user.all %}
+                                <a href="{% url "webapp:update_todo" todo.pk %}"
+                                   class="btn btn-info"><i class="bi bi-pencil-square"></i></a>
+                            {% endif %}
+                            {% if perms.webapp.delete_todo and user in project.user.all %}
+                                <a href="{% url "webapp:delete_todo" todo.pk %}" class="btn btn-info"><i
+                                        class="bi bi-trash3"></i></a>
+                            {% endif %}
                         {% endif %}
                     </div>
 
@@ -60,13 +72,6 @@
             <h2 style="margin-top: 50px">Задачи не найдены.</h2>
         {% endfor %}
     </div>
-
-
-
-
-
-
-
 
 {% endblock %}
 

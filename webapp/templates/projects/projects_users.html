@@ -6,8 +6,8 @@
     <h1 style="margin-top: 50px">Проект: {{ project.title }}</h1>
 
 <div>
-    <h3>Список пользователей проекта: </h3>
-    <p>
+    <h5 style="margin-top: 50px">Список пользователей проекта: </h5>
+    <p style="margin-top: 30px; margin-bottom: 50px">
         {% for user in project.user.all %}
             {{ user }}
             {% if not forloop.last %},
@@ -23,26 +23,27 @@
 
 <form method="post" action="{% url 'webapp:project_user' project.pk %}">
     {% csrf_token %}
-    <label for="user_id">Add User:</label>
-    <select name="user_id" id="user_id">
+    <label for="user_id" class="form-label">Add User:</label>
+    <select class="form-select" name="user_id" id="user_id">
         {% for user in all_users %}
             <option value="{{ user.id }}">{{ user.username }}</option>
         {% endfor %}
     </select>
-    <button type="submit" name="add_user">Add</button>
-</form>
+    <button style="margin-top: 20px" type="submit" name="add_user" class="btn btn-info">Add</button>
 
-<form method="post" action="{% url 'webapp:project_user' project.pk %}">
-    {% csrf_token %}
-    <label for="user_id">Remove User:</label>
-    <select name="user_id" id="user_id">
-        {% for user in project.user.all %}
-            <option value="{{ user.id }}">{{ user.username }}</option>
-        {% endfor %}
-    </select>
-    <button type="submit" name="remove_user">Remove</button>
 </form>
-
+<div style="margin-top: 50px">
+    <form method="post" action="{% url 'webapp:project_user' project.pk %}">
+        {% csrf_token %}
+        <label for="user_id" class="form-label">Remove User:</label>
+        <select class="form-select" name="user_id" id="user_id">
+            {% for user in project.user.all %}
+                <option value="{{ user.id }}">{{ user.username }}</option>
+            {% endfor %}
+        </select>
+        <button style="margin-top: 20px" type="submit" class="btn btn-danger" name="remove_user">Remove</button>
+    </form>
+</div>
 
 
 
