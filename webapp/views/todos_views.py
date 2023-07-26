@@ -37,10 +37,10 @@ class TodoUpdateView(PermissionRequiredMixin, UpdateView):
         return reverse('webapp:todo_view', kwargs={'pk': self.object.pk})
 
     def has_permission(self):
-        project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
         user = self.request.user
+        todo = get_object_or_404(Todo, pk=self.kwargs.get('pk'))
         groups = ['Project Manager', 'Team Lead', 'Developer']
-        return self.request.user.groups.filter(name__in=groups) and user in project.user.all()
+        return self.request.user.groups.filter(name__in=groups) and user in todo.project.user.all()
 
 
 class TodoDeleteView(PermissionRequiredMixin, DeleteView):
@@ -52,10 +52,14 @@ class TodoDeleteView(PermissionRequiredMixin, DeleteView):
         return reverse('webapp:project_view', kwargs={'pk': self.object.project.pk})
 
     def has_permission(self):
-        project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
+        print(self.kwargs.get("pk"))
+        print('*' * 40)
+        todo = self.get_object()
+        print(self.kwargs.get("pk"))
+        print(todo)
         user = self.request.user
         groups = ['Project Manager', 'Team Lead']
-        return self.request.user.groups.filter(name__in=groups) and user in project.user.all()
+        return self.request.user.groups.filter(name__in=groups) and user in todo.project.user.all()
 
     def delete(self, request, *args, **kwargs):
         self.object = super().get_object(queryset=None)

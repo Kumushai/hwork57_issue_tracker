@@ -96,7 +96,13 @@ class ProjectDetailView(DetailView):
         return context
 
 
-class ProjectUserView(View):
+class ProjectUserView(PermissionRequiredMixin, View):
+
+    def has_permission(self):
+        project = get_object_or_404(Project, pk=self.kwargs.get('pk'))
+        user = self.request.user
+        groups = ['Project Manager', 'Team Lead']
+        return self.request.user.groups.filter(name__in=groups) and user in project.user.all()
 
     def get(self, request, pk):
         project = get_object_or_404(Project, pk=pk)
