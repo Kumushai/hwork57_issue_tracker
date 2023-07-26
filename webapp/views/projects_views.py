@@ -62,6 +62,12 @@ class ProjectCreateView(PermissionRequiredMixin, CreateView):
     def has_permission(self):
         return self.request.user.groups.filter(name="Project Manager")
 
+    def form_valid(self, form):
+        project = form.save(commit=False)
+        project.save()
+        project.user.add(self.request.user)
+        return super().form_valid(form)
+
 
 class ProjectUpdateView(PermissionRequiredMixin, UpdateView):
     model = Project
