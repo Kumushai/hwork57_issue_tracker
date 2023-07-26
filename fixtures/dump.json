@@ -1,587 +1,667 @@
 [
 {
-    "model": "webapp.todo",
-    "pk": 2,
-    "fields": {
-        "created_at": "2023-07-07T10:01:36.079Z",
-        "updated_at": "2023-07-16T18:30:01.095Z",
-        "content": "Home",
-        "details": "woooow\r\n    search_fields = ['title', 'content']\r\n    fields = ['title', 'author', 'content', 'created_at', 'updated_at', 'status']\r\n    readonly_fields = ['created_at', 'updated_at']jjkjj",
-        "status": 3,
-        "project": 6,
-        "is_deleted": false,
-        "types": [
-            1,
-            2
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 2,
+  "fields": {
+    "created_at": "2023-07-07T10:01:36.079Z",
+    "updated_at": "2023-07-16T18:30:01.095Z",
+    "content": "Home",
+    "details": "woooow\r\n    search_fields = ['title', 'content']\r\n    fields = ['title', 'author', 'content', 'created_at', 'updated_at', 'status']\r\n    readonly_fields = ['created_at', 'updated_at']jjkjj",
+    "status": 3,
+    "project": 6,
+    "is_deleted": false,
+    "types": [
+      1,
+      2
+    ]
+  }
 },
 {
-    "model": "webapp.todo",
-    "pk": 3,
-    "fields": {
-        "created_at": "2023-07-07T10:01:50.377Z",
-        "updated_at": "2023-07-11T11:11:57.567Z",
-        "content": "test2",
-        "details": "dfsf",
-        "status": 2,
-        "project": 1,
-        "is_deleted": false,
-        "types": [
-            1
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 3,
+  "fields": {
+    "created_at": "2023-07-07T10:01:50.377Z",
+    "updated_at": "2023-07-11T11:11:57.567Z",
+    "content": "test2",
+    "details": "dfsf",
+    "status": 2,
+    "project": 1,
+    "is_deleted": false,
+    "types": [
+      1
+    ]
+  }
 },
 {
-    "model": "webapp.todo",
-    "pk": 4,
-    "fields": {
-        "created_at": "2023-07-07T10:02:03.234Z",
-        "updated_at": "2023-07-18T06:50:43.448Z",
-        "content": "test33333555",
-        "details": "dfdf",
-        "status": 3,
-        "project": 4,
-        "is_deleted": false,
-        "types": [
-            1,
-            2
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 5,
+  "fields": {
+    "created_at": "2023-07-07T10:02:18.596Z",
+    "updated_at": "2023-07-11T11:11:47.071Z",
+    "content": "test4",
+    "details": "dfdfdf",
+    "status": 2,
+    "project": 1,
+    "is_deleted": false,
+    "types": [
+      1,
+      2,
+      3
+    ]
+  }
 },
 {
-    "model": "webapp.todo",
-    "pk": 5,
-    "fields": {
-        "created_at": "2023-07-07T10:02:18.596Z",
-        "updated_at": "2023-07-11T11:11:47.071Z",
-        "content": "test4",
-        "details": "dfdfdf",
-        "status": 2,
-        "project": 1,
-        "is_deleted": false,
-        "types": [
-            1,
-            2,
-            3
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 6,
+  "fields": {
+    "created_at": "2023-07-07T10:02:30.988Z",
+    "updated_at": "2023-07-26T08:57:15.295Z",
+    "content": "test5ijj",
+    "details": "dfsfsfsf",
+    "status": 3,
+    "project": 5,
+    "is_deleted": false,
+    "types": [
+      1
+    ]
+  }
 },
 {
-    "model": "webapp.todo",
-    "pk": 6,
-    "fields": {
-        "created_at": "2023-07-07T10:02:30.988Z",
-        "updated_at": "2023-07-16T18:29:40.885Z",
-        "content": "test5",
-        "details": "dfsfsfsf",
-        "status": 3,
-        "project": 5,
-        "is_deleted": false,
-        "types": [
-            1
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 7,
+  "fields": {
+    "created_at": "2023-07-07T12:21:47.664Z",
+    "updated_at": "2023-07-16T18:29:33.811Z",
+    "content": "Yjjjj",
+    "details": "dfsfsfsfsf",
+    "status": 1,
+    "project": 6,
+    "is_deleted": false,
+    "types": [
+      2
+    ]
+  }
 },
 {
-    "model": "webapp.todo",
-    "pk": 7,
-    "fields": {
-        "created_at": "2023-07-07T12:21:47.664Z",
-        "updated_at": "2023-07-16T18:29:33.811Z",
-        "content": "Yjjjj",
-        "details": "dfsfsfsfsf",
-        "status": 1,
-        "project": 6,
-        "is_deleted": false,
-        "types": [
-            2
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 8,
+  "fields": {
+    "created_at": "2023-07-07T12:32:46.208Z",
+    "updated_at": "2023-07-16T18:29:25.506Z",
+    "content": "yjd",
+    "details": "dfdf",
+    "status": 2,
+    "project": 5,
+    "is_deleted": false,
+    "types": [
+      2,
+      3
+    ]
+  }
 },
 {
-    "model": "webapp.todo",
-    "pk": 8,
-    "fields": {
-        "created_at": "2023-07-07T12:32:46.208Z",
-        "updated_at": "2023-07-16T18:29:25.506Z",
-        "content": "yjd",
-        "details": "dfdf",
-        "status": 2,
-        "project": 5,
-        "is_deleted": false,
-        "types": [
-            2,
-            3
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 9,
+  "fields": {
+    "created_at": "2023-07-07T12:44:08.190Z",
+    "updated_at": "2023-07-26T05:26:00.288Z",
+    "content": "late bug135",
+    "details": "dfsfваа222222",
+    "status": 2,
+    "project": 4,
+    "is_deleted": false,
+    "types": [
+      3
+    ]
+  }
 },
 {
-    "model": "webapp.todo",
-    "pk": 9,
-    "fields": {
-        "created_at": "2023-07-07T12:44:08.190Z",
-        "updated_at": "2023-07-18T08:00:03.933Z",
-        "content": "late bug",
-        "details": "dfsf",
-        "status": 2,
-        "project": 4,
-        "is_deleted": false,
-        "types": [
-            3
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 10,
+  "fields": {
+    "created_at": "2023-07-11T12:39:21.297Z",
+    "updated_at": "2023-07-16T18:29:10.764Z",
+    "content": "Task80",
+    "details": "dfdfdfdf",
+    "status": 1,
+    "project": 3,
+    "is_deleted": false,
+    "types": [
+      2,
+      3
+    ]
+  }
 },
 {
-    "model": "webapp.todo",
-    "pk": 10,
-    "fields": {
-        "created_at": "2023-07-11T12:39:21.297Z",
-        "updated_at": "2023-07-16T18:29:10.764Z",
-        "content": "Task80",
-        "details": "dfdfdfdf",
-        "status": 1,
-        "project": 3,
-        "is_deleted": false,
-        "types": [
-            2,
-            3
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 11,
+  "fields": {
+    "created_at": "2023-07-11T12:39:34.406Z",
+    "updated_at": "2023-07-11T12:39:34.406Z",
+    "content": "Task90",
+    "details": "sdfsdfsldklksg",
+    "status": 1,
+    "project": 1,
+    "is_deleted": false,
+    "types": [
+      1,
+      2
+    ]
+  }
 },
 {
-    "model": "webapp.todo",
-    "pk": 11,
-    "fields": {
-        "created_at": "2023-07-11T12:39:34.406Z",
-        "updated_at": "2023-07-11T12:39:34.406Z",
-        "content": "Task90",
-        "details": "sdfsdfsldklksg",
-        "status": 1,
-        "project": 1,
-        "is_deleted": false,
-        "types": [
-            1,
-            2
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 12,
+  "fields": {
+    "created_at": "2023-07-11T12:39:46.242Z",
+    "updated_at": "2023-07-16T18:29:02.038Z",
+    "content": "Task40",
+    "details": "sfsllllllll",
+    "status": 2,
+    "project": 2,
+    "is_deleted": false,
+    "types": [
+      2
+    ]
+  }
 },
 {
-    "model": "webapp.todo",
-    "pk": 12,
-    "fields": {
-        "created_at": "2023-07-11T12:39:46.242Z",
-        "updated_at": "2023-07-16T18:29:02.038Z",
-        "content": "Task40",
-        "details": "sfsllllllll",
-        "status": 2,
-        "project": 2,
-        "is_deleted": false,
-        "types": [
-            2
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 13,
+  "fields": {
+    "created_at": "2023-07-11T12:39:57.827Z",
+    "updated_at": "2023-07-16T18:28:54.625Z",
+    "content": "Task20",
+    "details": "",
+    "status": 3,
+    "project": 6,
+    "is_deleted": false,
+    "types": [
+      2
+    ]
+  }
 },
 {
-    "model": "webapp.todo",
-    "pk": 13,
-    "fields": {
-        "created_at": "2023-07-11T12:39:57.827Z",
-        "updated_at": "2023-07-16T18:28:54.625Z",
-        "content": "Task20",
-        "details": "",
-        "status": 3,
-        "project": 6,
-        "is_deleted": false,
-        "types": [
-            2
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 14,
+  "fields": {
+    "created_at": "2023-07-11T12:40:08.809Z",
+    "updated_at": "2023-07-18T08:00:45.457Z",
+    "content": "Task78",
+    "details": "sdfsfsfsfsfbb",
+    "status": 1,
+    "project": 7,
+    "is_deleted": false,
+    "types": [
+      2,
+      3
+    ]
+  }
 },
 {
-    "model": "webapp.todo",
-    "pk": 14,
-    "fields": {
-        "created_at": "2023-07-11T12:40:08.809Z",
-        "updated_at": "2023-07-18T08:00:45.457Z",
-        "content": "Task78",
-        "details": "sdfsfsfsfsfbb",
-        "status": 1,
-        "project": 7,
-        "is_deleted": false,
-        "types": [
-            2,
-            3
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 16,
+  "fields": {
+    "created_at": "2023-07-11T12:40:33.813Z",
+    "updated_at": "2023-07-16T18:28:28.856Z",
+    "content": "Task12",
+    "details": "sdfjksjfksf",
+    "status": 2,
+    "project": 3,
+    "is_deleted": false,
+    "types": [
+      1,
+      3
+    ]
+  }
 },
 {
-    "model": "webapp.todo",
-    "pk": 15,
-    "fields": {
-        "created_at": "2023-07-11T12:40:21.463Z",
-        "updated_at": "2023-07-16T18:28:38.639Z",
-        "content": "Task34",
-        "details": "sdfsfsfsff",
-        "status": 1,
-        "project": 4,
-        "is_deleted": false,
-        "types": [
-            1
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 17,
+  "fields": {
+    "created_at": "2023-07-11T12:40:46.609Z",
+    "updated_at": "2023-07-16T19:57:49.303Z",
+    "content": "Task45",
+    "details": "sdfsfkskflkflsf",
+    "status": 1,
+    "project": 8,
+    "is_deleted": false,
+    "types": [
+      3
+    ]
+  }
 },
 {
-    "model": "webapp.todo",
-    "pk": 16,
-    "fields": {
-        "created_at": "2023-07-11T12:40:33.813Z",
-        "updated_at": "2023-07-16T18:28:28.856Z",
-        "content": "Task12",
-        "details": "sdfjksjfksf",
-        "status": 2,
-        "project": 3,
-        "is_deleted": false,
-        "types": [
-            1,
-            3
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 18,
+  "fields": {
+    "created_at": "2023-07-16T19:58:38.162Z",
+    "updated_at": "2023-07-16T19:58:38.162Z",
+    "content": "Eminem",
+    "details": "dffdf",
+    "status": 2,
+    "project": 9,
+    "is_deleted": false,
+    "types": [
+      3
+    ]
+  }
 },
 {
-    "model": "webapp.todo",
-    "pk": 17,
-    "fields": {
-        "created_at": "2023-07-11T12:40:46.609Z",
-        "updated_at": "2023-07-16T19:57:49.303Z",
-        "content": "Task45",
-        "details": "sdfsfkskflkflsf",
-        "status": 1,
-        "project": 8,
-        "is_deleted": false,
-        "types": [
-            3
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 19,
+  "fields": {
+    "created_at": "2023-07-16T19:58:51.212Z",
+    "updated_at": "2023-07-16T19:58:51.212Z",
+    "content": "Lol",
+    "details": "dfdf",
+    "status": 1,
+    "project": 11,
+    "is_deleted": false,
+    "types": [
+      2
+    ]
+  }
 },
 {
-    "model": "webapp.todo",
-    "pk": 18,
-    "fields": {
-        "created_at": "2023-07-16T19:58:38.162Z",
-        "updated_at": "2023-07-16T19:58:38.162Z",
-        "content": "Eminem",
-        "details": "dffdf",
-        "status": 2,
-        "project": 9,
-        "is_deleted": false,
-        "types": [
-            3
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 20,
+  "fields": {
+    "created_at": "2023-07-16T19:59:08.243Z",
+    "updated_at": "2023-07-18T06:57:24.865Z",
+    "content": "Top my 3",
+    "details": "dfsfsf",
+    "status": 1,
+    "project": 10,
+    "is_deleted": false,
+    "types": [
+      1
+    ]
+  }
 },
 {
-    "model": "webapp.todo",
-    "pk": 19,
-    "fields": {
-        "created_at": "2023-07-16T19:58:51.212Z",
-        "updated_at": "2023-07-16T19:58:51.212Z",
-        "content": "Lol",
-        "details": "dfdf",
-        "status": 1,
-        "project": 11,
-        "is_deleted": false,
-        "types": [
-            2
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 21,
+  "fields": {
+    "created_at": "2023-07-16T19:59:32.385Z",
+    "updated_at": "2023-07-16T19:59:32.385Z",
+    "content": "4567",
+    "details": "sfsf",
+    "status": 2,
+    "project": 8,
+    "is_deleted": false,
+    "types": [
+      1
+    ]
+  }
 },
 {
-    "model": "webapp.todo",
-    "pk": 20,
-    "fields": {
-        "created_at": "2023-07-16T19:59:08.243Z",
-        "updated_at": "2023-07-18T06:57:24.865Z",
-        "content": "Top my 3",
-        "details": "dfsfsf",
-        "status": 1,
-        "project": 10,
-        "is_deleted": false,
-        "types": [
-            1
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 22,
+  "fields": {
+    "created_at": "2023-07-16T19:59:54.138Z",
+    "updated_at": "2023-07-26T08:55:35.219Z",
+    "content": "pushkin1",
+    "details": "dfsfs",
+    "status": 3,
+    "project": 7,
+    "is_deleted": false,
+    "types": [
+      3
+    ]
+  }
 },
 {
-    "model": "webapp.todo",
-    "pk": 21,
-    "fields": {
-        "created_at": "2023-07-16T19:59:32.385Z",
-        "updated_at": "2023-07-16T19:59:32.385Z",
-        "content": "4567",
-        "details": "sfsf",
-        "status": 2,
-        "project": 8,
-        "is_deleted": false,
-        "types": [
-            1
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 23,
+  "fields": {
+    "created_at": "2023-07-17T18:08:26.780Z",
+    "updated_at": "2023-07-17T18:08:26.780Z",
+    "content": "loldddddkjjkjkjk",
+    "details": "dkfjkjf",
+    "status": 2,
+    "project": 1,
+    "is_deleted": false,
+    "types": [
+      1,
+      2,
+      3
+    ]
+  }
 },
 {
-    "model": "webapp.todo",
-    "pk": 22,
-    "fields": {
-        "created_at": "2023-07-16T19:59:54.138Z",
-        "updated_at": "2023-07-16T19:59:54.138Z",
-        "content": "pushkin",
-        "details": "dfsfs",
-        "status": 3,
-        "project": 7,
-        "is_deleted": false,
-        "types": [
-            3
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 24,
+  "fields": {
+    "created_at": "2023-07-17T18:37:14.290Z",
+    "updated_at": "2023-07-17T18:37:14.290Z",
+    "content": "mytask",
+    "details": "dfkdjfkdjfsf",
+    "status": 1,
+    "project": 10,
+    "is_deleted": false,
+    "types": [
+      1,
+      2,
+      3
+    ]
+  }
 },
 {
-    "model": "webapp.todo",
-    "pk": 23,
-    "fields": {
-        "created_at": "2023-07-17T18:08:26.780Z",
-        "updated_at": "2023-07-17T18:08:26.780Z",
-        "content": "loldddddkjjkjkjk",
-        "details": "dkfjkjf",
-        "status": 2,
-        "project": 1,
-        "is_deleted": false,
-        "types": [
-            1,
-            2,
-            3
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 37,
+  "fields": {
+    "created_at": "2023-07-26T06:12:28.272Z",
+    "updated_at": "2023-07-26T06:12:28.272Z",
+    "content": "dommm",
+    "details": "fsfs",
+    "status": 1,
+    "project": 4,
+    "is_deleted": false,
+    "types": [
+      3
+    ]
+  }
 },
 {
-    "model": "webapp.todo",
-    "pk": 24,
-    "fields": {
-        "created_at": "2023-07-17T18:37:14.290Z",
-        "updated_at": "2023-07-17T18:37:14.290Z",
-        "content": "mytask",
-        "details": "dfkdjfkdjfsf",
-        "status": 1,
-        "project": 10,
-        "is_deleted": false,
-        "types": [
-            1,
-            2,
-            3
-        ]
-    }
+  "model": "webapp.todo",
+  "pk": 38,
+  "fields": {
+    "created_at": "2023-07-26T08:03:01.065Z",
+    "updated_at": "2023-07-26T08:03:01.065Z",
+    "content": "devs task",
+    "details": "dfdf",
+    "status": 1,
+    "project": 4,
+    "is_deleted": false,
+    "types": [
+      1
+    ]
+  }
 },
 {
-    "model": "webapp.status",
-    "pk": 1,
-    "fields": {
-        "created_at": "2023-07-07T09:56:39.865Z",
-        "updated_at": "2023-07-07T09:56:39.866Z",
-        "name": "New"
-    }
+  "model": "webapp.todo",
+  "pk": 39,
+  "fields": {
+    "created_at": "2023-07-26T08:23:13.434Z",
+    "updated_at": "2023-07-26T08:23:23.730Z",
+    "content": "dev task test2",
+    "details": "dfsfsf",
+    "status": 3,
+    "project": 4,
+    "is_deleted": false,
+    "types": [
+      2
+    ]
+  }
 },
 {
-    "model": "webapp.status",
-    "pk": 2,
-    "fields": {
-        "created_at": "2023-07-07T09:56:51.723Z",
-        "updated_at": "2023-07-07T09:56:51.723Z",
-        "name": "In Progress"
-    }
+  "model": "webapp.todo",
+  "pk": 40,
+  "fields": {
+    "created_at": "2023-07-26T09:18:35.542Z",
+    "updated_at": "2023-07-26T09:18:35.542Z",
+    "content": "dfjdkfjkdf",
+    "details": "sf",
+    "status": 1,
+    "project": 7,
+    "is_deleted": false,
+    "types": [
+      3
+    ]
+  }
 },
 {
-    "model": "webapp.status",
-    "pk": 3,
-    "fields": {
-        "created_at": "2023-07-07T09:56:58.316Z",
-        "updated_at": "2023-07-07T09:56:58.316Z",
-        "name": "Done"
-    }
+  "model": "webapp.status",
+  "pk": 1,
+  "fields": {
+    "created_at": "2023-07-07T09:56:39.865Z",
+    "updated_at": "2023-07-07T09:56:39.866Z",
+    "name": "New"
+  }
 },
 {
-    "model": "webapp.type",
-    "pk": 1,
-    "fields": {
-        "created_at": "2023-07-07T09:57:11.937Z",
-        "updated_at": "2023-07-07T09:57:11.937Z",
-        "name": "Task"
-    }
+  "model": "webapp.status",
+  "pk": 2,
+  "fields": {
+    "created_at": "2023-07-07T09:56:51.723Z",
+    "updated_at": "2023-07-07T09:56:51.723Z",
+    "name": "In Progress"
+  }
 },
 {
-    "model": "webapp.type",
-    "pk": 2,
-    "fields": {
-        "created_at": "2023-07-07T09:57:22.793Z",
-        "updated_at": "2023-07-07T09:57:22.794Z",
-        "name": "Bug"
-    }
+  "model": "webapp.status",
+  "pk": 3,
+  "fields": {
+    "created_at": "2023-07-07T09:56:58.316Z",
+    "updated_at": "2023-07-07T09:56:58.316Z",
+    "name": "Done"
+  }
 },
 {
-    "model": "webapp.type",
-    "pk": 3,
-    "fields": {
-        "created_at": "2023-07-07T09:57:24.949Z",
-        "updated_at": "2023-07-07T09:57:24.949Z",
-        "name": "Enhancement"
-    }
+  "model": "webapp.type",
+  "pk": 1,
+  "fields": {
+    "created_at": "2023-07-07T09:57:11.937Z",
+    "updated_at": "2023-07-07T09:57:11.937Z",
+    "name": "Task"
+  }
 },
 {
-    "model": "webapp.project",
-    "pk": 1,
-    "fields": {
-        "title": "Project1",
-        "description": "description1",
-        "start_date": "2023-01-03",
-        "end_date": null
-    }
+  "model": "webapp.type",
+  "pk": 2,
+  "fields": {
+    "created_at": "2023-07-07T09:57:22.793Z",
+    "updated_at": "2023-07-07T09:57:22.794Z",
+    "name": "Bug"
+  }
 },
 {
-    "model": "webapp.project",
-    "pk": 2,
-    "fields": {
-        "title": "Project2",
-        "description": "desc 2",
-        "start_date": "2023-07-09",
-        "end_date": "2023-07-31"
-    }
+  "model": "webapp.type",
+  "pk": 3,
+  "fields": {
+    "created_at": "2023-07-07T09:57:24.949Z",
+    "updated_at": "2023-07-07T09:57:24.949Z",
+    "name": "Enhancement"
+  }
 },
 {
-    "model": "webapp.project",
-    "pk": 3,
-    "fields": {
-        "title": "Project3",
-        "description": "desc 3",
-        "start_date": "2023-05-08",
-        "end_date": "2023-07-27"
-    }
+  "model": "webapp.project",
+  "pk": 1,
+  "fields": {
+    "title": "Project1",
+    "description": "description1",
+    "start_date": "2023-01-03",
+    "end_date": null,
+    "user": []
+  }
 },
 {
-    "model": "webapp.project",
-    "pk": 4,
-    "fields": {
-        "title": "Checking search",
-        "description": "just in case",
-        "start_date": "2023-07-16",
-        "end_date": "2023-07-16"
-    }
+  "model": "webapp.project",
+  "pk": 2,
+  "fields": {
+    "title": "Project2",
+    "description": "desc 2",
+    "start_date": "2023-07-09",
+    "end_date": "2023-07-31",
+    "user": []
+  }
 },
 {
-    "model": "webapp.project",
-    "pk": 5,
-    "fields": {
-        "title": "Zemfira",
-        "description": "concert",
-        "start_date": "2023-07-11",
-        "end_date": "2023-08-18"
-    }
+  "model": "webapp.project",
+  "pk": 3,
+  "fields": {
+    "title": "Project3",
+    "description": "desc 3",
+    "start_date": "2023-05-08",
+    "end_date": "2023-07-27",
+    "user": []
+  }
 },
 {
-    "model": "webapp.project",
-    "pk": 6,
-    "fields": {
-        "title": "LOL",
-        "description": "LOL",
-        "start_date": "2023-03-06",
-        "end_date": "2023-07-16"
-    }
+  "model": "webapp.project",
+  "pk": 4,
+  "fields": {
+    "title": "Checking search",
+    "description": "just in case",
+    "start_date": "2023-07-16",
+    "end_date": "2023-07-16",
+    "user": [
+      1,
+      2,
+      4,
+      5
+    ]
+  }
 },
 {
-    "model": "webapp.project",
-    "pk": 7,
-    "fields": {
-        "title": "eminem",
-        "description": "dDre",
-        "start_date": "2023-07-16",
-        "end_date": null
-    }
+  "model": "webapp.project",
+  "pk": 5,
+  "fields": {
+    "title": "Zemfira",
+    "description": "concert",
+    "start_date": "2023-07-11",
+    "end_date": "2023-08-18",
+    "user": [
+      6
+    ]
+  }
 },
 {
-    "model": "webapp.project",
-    "pk": 8,
-    "fields": {
-        "title": "Nirvana",
-        "description": "smells like teen spirit",
-        "start_date": "2022-12-06",
-        "end_date": "2023-07-29"
-    }
+  "model": "webapp.project",
+  "pk": 6,
+  "fields": {
+    "title": "LOL",
+    "description": "LOL",
+    "start_date": "2023-03-06",
+    "end_date": "2023-07-16",
+    "user": []
+  }
 },
 {
-    "model": "webapp.project",
-    "pk": 9,
-    "fields": {
-        "title": "LOL3",
-        "description": "des3",
-        "start_date": "2023-03-16",
-        "end_date": "2023-11-10"
-    }
+  "model": "webapp.project",
+  "pk": 7,
+  "fields": {
+    "title": "eminem",
+    "description": "dDre",
+    "start_date": "2023-07-16",
+    "end_date": null,
+    "user": [
+      4,
+      7
+    ]
+  }
 },
 {
-    "model": "webapp.project",
-    "pk": 10,
-    "fields": {
-        "title": "Myproject2",
-        "description": "Myproject",
-        "start_date": "2023-03-08",
-        "end_date": "2023-07-29"
-    }
+  "model": "webapp.project",
+  "pk": 8,
+  "fields": {
+    "title": "Nirvana",
+    "description": "smells like teen spirit",
+    "start_date": "2022-12-06",
+    "end_date": "2023-07-29",
+    "user": []
+  }
 },
 {
-    "model": "webapp.project",
-    "pk": 11,
-    "fields": {
-        "title": "IK23",
-        "description": "LOL",
-        "start_date": "2023-07-02",
-        "end_date": null
-    }
+  "model": "webapp.project",
+  "pk": 9,
+  "fields": {
+    "title": "LOL3",
+    "description": "des3",
+    "start_date": "2023-03-16",
+    "end_date": "2023-11-10",
+    "user": []
+  }
 },
 {
-    "model": "webapp.project",
-    "pk": 12,
-    "fields": {
-        "title": "lol",
-        "description": "some some lol",
-        "start_date": "2023-03-03",
-        "end_date": null
-    }
+  "model": "webapp.project",
+  "pk": 10,
+  "fields": {
+    "title": "Myproject2",
+    "description": "Myproject",
+    "start_date": "2023-03-08",
+    "end_date": "2023-07-29",
+    "user": []
+  }
 },
 {
-    "model": "webapp.project",
-    "pk": 13,
-    "fields": {
-        "title": "zemfira2",
-        "description": "descr",
-        "start_date": "2022-04-05",
-        "end_date": null
-    }
+  "model": "webapp.project",
+  "pk": 11,
+  "fields": {
+    "title": "IK23",
+    "description": "LOL",
+    "start_date": "2023-07-02",
+    "end_date": null,
+    "user": []
+  }
 },
 {
-    "model": "webapp.project",
-    "pk": 16,
-    "fields": {
-        "title": "!!!!!новая",
-        "description": "ываыаыа",
-        "start_date": "2023-07-04",
-        "end_date": null
-    }
+  "model": "webapp.project",
+  "pk": 12,
+  "fields": {
+    "title": "lol",
+    "description": "some some lol",
+    "start_date": "2023-03-03",
+    "end_date": null,
+    "user": []
+  }
 },
 {
-    "model": "webapp.project",
-    "pk": 19,
-    "fields": {
-        "title": "дата тест",
-        "description": "лолололо",
-        "start_date": "2023-07-28",
-        "end_date": "2023-07-04"
-    }
+  "model": "webapp.project",
+  "pk": 13,
+  "fields": {
+    "title": "zemfira2",
+    "description": "descr",
+    "start_date": "2022-04-05",
+    "end_date": null,
+    "user": []
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 16,
+  "fields": {
+    "title": "!!!!!новая",
+    "description": "ываыаыа",
+    "start_date": "2023-07-04",
+    "end_date": null,
+    "user": []
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 19,
+  "fields": {
+    "title": "дата тест",
+    "description": "лолололоdfdf",
+    "start_date": "2023-07-04",
+    "end_date": "2023-07-04",
+    "user": []
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 21,
+  "fields": {
+    "title": "new project check",
+    "description": "dfs",
+    "start_date": "2023-07-12",
+    "end_date": "2023-07-27",
+    "user": []
+  }
+},
+{
+  "model": "webapp.project",
+  "pk": 22,
+  "fields": {
+    "title": "new new 11 project",
+    "description": "dfs",
+    "start_date": "2023-07-03",
+    "end_date": "2023-07-19",
+    "user": [
+      8
+    ]
+  }
 }
 ]
